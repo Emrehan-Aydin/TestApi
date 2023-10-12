@@ -5,12 +5,12 @@ WORKDIR /app
 COPY *.csproj .
 COPY . ./
 
-RUN dotnet publish --no-rstore -c Release -o /app/publish 
+RUN dotnet publish --no-rstore -c Release -o out
 
 
 FROM mcr.microsoft.com/dotnet/aspnet:6.0
 WORKDIR /app
-COPY --from=build /app/publish .
+COPY --from=build /app/out .
 ENTRYPOINT ["dotnet","TestApi.dll"]
 
 
