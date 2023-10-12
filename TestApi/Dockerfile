@@ -5,7 +5,7 @@ WORKDIR /app
 COPY *.csproj .
 COPY . ./
 
-RUN dotnet publish --no-restore -c Release -o out
+RUN dotnet publish --no-restore -c Release
 
 
 FROM mcr.microsoft.com/dotnet/aspnet:6.0
