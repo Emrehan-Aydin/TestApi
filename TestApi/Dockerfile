@@ -6,7 +6,8 @@ WORKDIR /app
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 
-RUN dotnet restore "TestApi/TestApi.csproj"
-COPY . .
-RUN dotnet build "TestApi.csproj" -c Release -o /app/publish 
+RUN dotnet restore 
+COPY . ./
+
+RUN dotnet publish -c Release -o /app/publish 
 
