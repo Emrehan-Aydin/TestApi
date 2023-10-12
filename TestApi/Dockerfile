@@ -8,9 +8,9 @@ COPY . ./
 RUN dotnet publish --no-rstore -c Release -o /app/publish 
 
 
-FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
+FROM mcr.microsoft.com/dotnet/aspnet:6.0
 WORKDIR /app
-COPY --from=base /app/publish .
+COPY --from=build /app/publish .
 ENTRYPOINT ["dotnet","TestApi.dll"]
 
 
