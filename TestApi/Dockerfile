@@ -7,7 +7,7 @@ COPY . ./
 
 RUN dotnet publish -c Release -o out
 
-FROM microsoft/dotnet:aspnetcore-runtime
+FROM mcr.microsoft.com/dotnet/aspnet:6.0
 WORKDIR /app
 copy --from=build-env /app/out .
 
