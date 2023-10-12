@@ -7,5 +7,7 @@ COPY . ./
 
 RUN dotnet publish -c Release -o out
 
-
+FROM microsoft/dotnet:aspnetcore-runtime
+WORKDIR /app
+copy --from=build-env /app/out .
 
