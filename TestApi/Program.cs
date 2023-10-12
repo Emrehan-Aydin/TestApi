@@ -7,7 +7,6 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-
 //1000 portunda çalýþ
 builder.WebHost.UseUrls("http://*:1000");
 var app = builder.Build();
