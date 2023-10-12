@@ -5,7 +5,6 @@ WORKDIR /app
 COPY *.csproj .
 COPY . ./
 
-RUN dotnet publish --no-restore -c Release
 
 
 
