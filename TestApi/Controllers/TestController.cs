@@ -18,8 +18,20 @@ namespace TestApi.Controllers
             _logger = logger;
         }
 
-        [HttpGet(Name = "ttt")]
-        public IEnumerable<WeatherForecast> Get()
+        [HttpGet("Emrehan")]
+        public IEnumerable<WeatherForecast> GetE()
+        {
+            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            {
+                Date = DateTime.Now.AddDays(index),
+                TemperatureC = Random.Shared.Next(-20, 55),
+                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
+            })
+            .ToArray();
+        }
+
+        [HttpGet("TTTTT")]
+        public IEnumerable<WeatherForecast> GetT()
         {
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
